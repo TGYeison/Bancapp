@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="formAccount">
+            <div class="mb-2">
+                <label for="" class="form-label">Numero de cuenta</label>
+                <input type="text" formControlName="accountId" class="form-control">
+
+                <div class="alert alert-danger mt-2" [hidden]="accountId?.valid || accountId?.pristine">
+                    El usuario es obligatorio
+                </div>
+            </div>
+            <div class="mb-2">
+                <label for="" class="form-label">Saldo inicial</label>
+                <input type="number" formControlName="balance" class="form-control">
+
+                <div class="alert alert-danger mt-2" [hidden]="balance?.valid || balance?.pristine">
+                    El usuario es obligatorio
+                </div>
+            </div>
+            <div class="mb-2">
+                <label for="" class="form-label">Contraseña</label>
+                <select type="password" formControlName="typeAccount" class="form-control">
+                    <option value="0">Seleccione...</option>
+                    <option value="1">Ahorros</option>
+                    <option value="2">Corriente</option>
+                    <option value="3">Credito</option>
+                </select>
+
+                <div class="alert alert-danger mt-2" [hidden]="typeAccount?.valid || typeAccount?.pristine">
+                    <span *ngIf="typeAccount?.errors?.['required']">
+                        Campo requerido
+                    </span>
+                    <span *ngIf="typeAccount?.errors?.['pattern']">
+                        La contraseña es invalida
+                    </span>
+                </div>
+            </div>
+            <button class="btn btn-primary me-2" routerLink="/lobby">Regresar</button>
+            <button class="btn btn-primary" (click)="addAccount()" [disabled]="formAccount.invalid">Añadir</button>
+        </form>
+    </div>
+</div>

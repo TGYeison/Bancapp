@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="formTransaction">
+            <div class="mb-2">
+                <label for="" class="form-label">Cuenta destinataria</label>
+                <input type="text" formControlName="accountDestination" class="form-control">
+
+                <div class="alert alert-danger mt-2" [hidden]="accountDestination?.valid || accountDestination?.pristine">
+                    El usuario es obligatorio
+                </div>
+            </div>
+            <div class="mb-2">
+                <label for="" class="form-label">Valor</label>
+                <input type="number" formControlName="amount" class="form-control">
+
+                <div class="alert alert-danger mt-2" [hidden]="amount?.valid || amount?.pristine">
+                    <span *ngIf="amount?.errors?.['required']">
+                        Campo requerido
+                    </span>
+                </div>
+            </div>
+            <button class="btn btn-primary me-2" routerLink="/register">Registrate</button>
+            <button class="btn btn-primary" (click)="createTransaction()" [disabled]="formTransaction.invalid">Crear </button>
+        </form>
+    </div>
+</div>

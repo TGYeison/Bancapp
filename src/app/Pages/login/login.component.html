@@ -1,0 +1,30 @@
+<div class="card container-auth">
+    <div class="card-body">
+        <form [formGroup]="formLogin">
+            <div class="mb-2">
+                <label for="" class="form-label">Usuario</label>
+                <input type="text" formControlName="userName" class="form-control">
+
+                <div class="alert alert-danger mt-2" [hidden]="userName?.valid || userName?.pristine">
+                    El usuario es obligatorio
+                </div>
+            </div>
+            <div class="mb-2">
+                <label for="" class="form-label">Contraseña</label>
+                <input type="password" formControlName="password" autocomplete="off" class="form-control">
+
+                <div class="alert alert-danger mt-2" [hidden]="password?.valid || password?.pristine">
+                    <span *ngIf="password?.errors?.['required']">
+                        Campo requerido
+                    </span>
+                    <span *ngIf="password?.errors?.['pattern']">
+                        La contraseña es invalida
+                    </span>
+                </div>
+            </div>
+            <div class="auth-actions"> 
+                <button class="btn-custom btn-custom-primary" (click)="login()" [disabled]="formLogin.invalid">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>

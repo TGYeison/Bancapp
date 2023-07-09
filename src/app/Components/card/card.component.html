@@ -1,0 +1,11 @@
+<div class="card border-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">{{account.accountId}}</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">{{account.balance | currency: 'COP'}}</h5>
+      <p class="card-text">{{account.typeAccount.name}}</p>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-primay" (click)="createAccount()">Movimientos</button>
+        <button class="btn btn-gray" (click)="transaction()">Realizar Movimiento</button>
+    </div>
+</div>

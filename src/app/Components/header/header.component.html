@@ -1,0 +1,29 @@
+<header class="header-app">
+    <div class="header-content">
+        <div class="header-actions header-action_prev">
+            <button 
+                *ngIf="currentpath.includes('/account') || currentpath.includes('/transaction')" 
+                class="btn-custom btn-custom-secondary" 
+                routerLink="/lobby"
+            >
+                Atras
+            </button>   
+            <button 
+                *ngIf="currentpath.includes('/register')" 
+                class="btn-custom btn-custom-secondary" 
+                routerLink="/login"
+            >
+                Atras
+            </button>   
+        </div> 
+        <div class="header-actions header-action_next">
+            <button class="btn-custom btn-custom-primary" *ngIf="currentpath.includes('/login')" routerLink="/register">Registrate</button>  
+            <button 
+                class="btn-custom btn-custom-primary" 
+                *ngIf="currentpath.includes('/account') || currentpath.includes('/transaction') || currentpath.includes('/lobby')"
+            >
+                Cerrar sesion
+            </button>   
+        </div> 
+    </div>
+</header>
