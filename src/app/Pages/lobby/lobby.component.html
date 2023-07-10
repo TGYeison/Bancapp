@@ -1,2 +1,4 @@
-<app-card *ngFor="let account of accounts" [account]="account"></app-card>
-<button routerLink="/account">Añadir Cuenta</button>
+<div class="lobby-container-main">
+    <app-card *ngFor="let account of accounts" [account]="account"></app-card>
+    <button class="btn-custom-secondary lobby-btn" routerLink="/account">Añadir Cuenta</button>
+</div>

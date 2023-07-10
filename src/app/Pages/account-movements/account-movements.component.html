@@ -1,9 +1,17 @@
 <div class="list-group">
-    <article *ngFor="let transaction of transactions" class="list-group-item list-group-item-action active" aria-current="true">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{transaction. amount}}</h5>
-          <small *ngIf="transaction.accountRoot == id">-</small>
-          <small *ngElse>+</small>
-        </div>
-    </article>
+  <article *ngFor="let transaction of transactions" class="list-group-item list-group-item-action" aria-current="true">
+    <ng-container *ngIf="transaction.accountRoot.id == id; then rest; else plus"></ng-container>
+    <ng-template #rest>
+      <div class="d-flex w-100 justify-content-between text-danger">
+        <h5 class="mb-1">{{transaction. amount | currency: 'COP'}}</h5>
+        <small>-</small>
+      </div>
+    </ng-template>
+    <ng-template #plus>
+      <div class="d-flex w-100 justify-content-between text-success">
+        <h5 class="mb-1">{{transaction. amount | currency: 'COP'}}</h5>
+        <small>+</small>
+      </div>
+    </ng-template>
+  </article>
 </div>

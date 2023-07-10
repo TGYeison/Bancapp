@@ -6,7 +6,7 @@
                 <input type="text" formControlName="userName" class="form-control">
 
                 <div class="alert alert-danger mt-2" [hidden]="userName?.valid || userName?.pristine">
-                    El usuario es obligatorio
+                    Campo requerido
                 </div>
             </div>
             <div class="mb-2">
@@ -16,9 +16,6 @@
                 <div class="alert alert-danger mt-2" [hidden]="password?.valid || password?.pristine">
                     <span *ngIf="password?.errors?.['required']">
                         Campo requerido
-                    </span>
-                    <span *ngIf="password?.errors?.['pattern']">
-                        La contraseña es invalida
                     </span>
                 </div>
             </div>

@@ -19,6 +19,7 @@
         <div class="header-actions header-action_next">
             <button class="btn-custom btn-custom-primary" *ngIf="currentpath.includes('/login')" routerLink="/register">Registrate</button>  
             <button 
+                (click)="signOut()"
                 class="btn-custom btn-custom-primary" 
                 *ngIf="currentpath.includes('/account') || currentpath.includes('/transaction') || currentpath.includes('/lobby')"
             >
