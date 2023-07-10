@@ -1,1 +1,13 @@
-<p>form-control works!</p>
+<div class="mb-2">
+    <label for="" class="form-label">{{label}}</label>
+    <input [type]="typeControl" [formControlName]="refControl" class="form-control">
+
+    <div class="alert alert-danger mt-2" [hidden]="refControl?.valid || refControl?.pristine">
+        <span *ngIf="refControl?.errors?.['required']">
+            Campo requerido
+        </span>
+        <span *ngIf="refControl?.errors?.['pattern']">
+            Valor de campo invalida
+        </span>
+    </div>
+</div>

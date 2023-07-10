@@ -3,10 +3,10 @@
         <form [formGroup]="formAccount">
             <div class="mb-2">
                 <label for="" class="form-label">Numero de cuenta</label>
-                <input type="text" formControlName="accountId" class="form-control">
+                <input type="number" formControlName="balance" class="form-control">
 
-                <div class="alert alert-danger mt-2" [hidden]="accountId?.valid || accountId?.pristine">
-                    El usuario es obligatorio
+                <div class="alert alert-danger mt-2" [hidden]="balance?.valid || balance?.pristine">
+                    Campo requerido
                 </div>
             </div>
             <div class="mb-2">
@@ -14,7 +14,7 @@
                 <input type="number" formControlName="balance" class="form-control">
 
                 <div class="alert alert-danger mt-2" [hidden]="balance?.valid || balance?.pristine">
-                    El usuario es obligatorio
+                    Campo requerido
                 </div>
             </div>
             <div class="mb-2">
@@ -30,13 +30,9 @@
                     <span *ngIf="typeAccount?.errors?.['required']">
                         Campo requerido
                     </span>
-                    <span *ngIf="typeAccount?.errors?.['pattern']">
-                        La contraseña es invalida
-                    </span>
                 </div>
             </div>
-            <button class="btn btn-primary me-2" routerLink="/lobby">Regresar</button>
-            <button class="btn btn-primary" (click)="addAccount()" [disabled]="formAccount.invalid">Añadir</button>
+            <button class="btn-custom btn-custom-primary" (click)="addAccount()" [disabled]="formAccount.invalid">Añadir</button>
         </form>
     </div>
 </div>

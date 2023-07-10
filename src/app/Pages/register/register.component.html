@@ -6,7 +6,7 @@
                 <input type="text" formControlName="name" class="form-control">
 
                 <div class="alert alert-danger mt-2" [hidden]="name?.valid || name?.pristine">
-                    El nombre es obligatorio
+                    Campo requerido
                 </div>
             </div>
             <div class="mb-2">
@@ -14,7 +14,7 @@
                 <input type="text" formControlName="lastName" class="form-control">
 
                 <div class="alert alert-danger mt-2" [hidden]="lastName?.valid || lastName?.pristine">
-                    El apellido es obligatorio
+                    Campo requerido
                 </div>
             </div>
             <div class="mb-2">
@@ -22,7 +22,7 @@
                 <input type="text" formControlName="userName" class="form-control">
 
                 <div class="alert alert-danger mt-2" [hidden]="userName?.valid || userName?.pristine">
-                    El usuario es obligatorio
+                    Campo requerido
                 </div>
             </div>
             <div class="mb-2">
@@ -30,7 +30,7 @@
                 <input type="number" formControlName="docID" class="form-control">
 
                 <div class="alert alert-danger mt-2" [hidden]="docID?.valid || docID?.pristine">
-                    El documento de identidad es obligatorio
+                    Campo requerido
                 </div>
             </div>
             <div class="mb-2">
@@ -39,10 +39,10 @@
 
                 <div class="alert alert-danger mt-2" [hidden]="phone?.valid || phone?.pristine">
                     <span *ngIf="phone?.errors?.['required']">
-                        El numero celular es requerido
+                        Campo requerido
                     </span>
                     <span *ngIf="phone?.errors?.['pattern']">
-                        Numero celular invalido
+                        El valor de este campo es invalido
                     </span>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                         Campo requerido
                     </span>
                     <span *ngIf="password?.errors?.['pattern']">
-                        La contraseña es invalida
+                        El valor de este campo es invalido
                     </span>
                 </div>
             </div>
